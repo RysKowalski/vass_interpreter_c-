@@ -45,6 +45,8 @@ public:
 			else if (line[0] == "skocz") {jump(line);}
 			else if (line[0] == "nowa") {new_line();}
 			else {std::cout << "unknown command: " << line[0] << std::endl;}
+
+			if (steps > 10000) {std::cout << "przekroczono 10000 kroków" << std::endl; exit(0);}
 		}
 
 		std::cout << std::endl;

@@ -1,7 +1,11 @@
 wczytaj A
-zmniejsz A 5
-jeżeli A >= 60 next 7
-wypisz napis '10:'
-zmniejsz A 60
-skocz 8
-wypisz napis '9:'
+jeżeli A <= 0 6 next
+        zwiększ B 1
+        zmniejsz A 2
+skocz 2
+wczytaj A
+jeżeli A <= 0 11 next
+        zwiększ B 1
+        zmniejsz A 2
+skocz 7
+wypisz zmienną B
