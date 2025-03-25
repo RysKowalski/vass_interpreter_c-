@@ -2,20 +2,23 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <unordered_map>
 
 class Interpreter {
 private:
 	std::vector<std::vector<std::string>> program;
-	int A = 0;
-	int B = 0;
-	int C = 0;
-	int D = 0;
+	std::unordered_map<std::string, int> variables;
+	
 	unsigned current_line = 0;
 	unsigned steps = 0;
 
 public:
 	Interpreter(std::vector<std::vector<std::string>> p) {
 		program = p;
+		variables["A"] = 0;
+		variables["B"] = 0;
+		variables["C"] = 0;
+		variables["D"] = 0;
 	}
 
 	void show_program() {
@@ -42,12 +45,7 @@ public:
 
 	void print_instruction(std::vector<std::string> parts) {
 		if (parts[1] == "zmienną") {
-			switch (parts[2][0]) {
-				case 'A': std::cout << A; break;
-				case 'B': std::cout << B; break;
-				case 'C': std::cout << C; break;
-				default: std::cout << D; break;
-			}
+			std::cout << variables[parts[2]];
 		}
 	
 
@@ -76,18 +74,11 @@ public:
 		std::cout << "podaj liczbe: ";
 		std::cin >> liczba;
 
-		switch (parts[1][0]) {
-			case 'A': A = liczba; break;
-			case 'B': B = liczba; break;
-			case 'C': C = liczba; break;
-			default:  D = liczba; break;
-		}
+		variables[parts[1]] = liczba;
 	}
 	
 	void set_variable(std::vector<std::string> parts) {
-		switch (parts[1][0]) {
-
-		}
+		variables[parts[1]] = std::stoi(parts[2]);
 	}
 
 };
