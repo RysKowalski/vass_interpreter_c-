@@ -1,0 +1,7 @@
+wczytaj A
+zmniejsz A 5
+jeżeli A >= 60 next 7
+wypisz napis '10:'
+zmniejsz A 60
+skocz 8
+wypisz napis '9:'
