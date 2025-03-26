@@ -159,7 +159,7 @@ public:
 
 		else if (parts[1] == "next") {return;}
 		
-		else {current_line = std::stoi(parts[1]);}
+		else {current_line = std::stoi(parts[1]) - 1;}
 	}
 
 	void new_line() {
